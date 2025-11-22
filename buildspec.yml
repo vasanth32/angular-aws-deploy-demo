@@ -3,8 +3,12 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Using Node version:"
+      - echo "Installing Node 20..."
+      - curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+      - apt-get install -y nodejs
+      - echo "Node version:"
       - node -v
+      - echo "NPM version:"
       - npm -v
       - npm ci
 
@@ -16,4 +20,4 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: dist/*
+  base-directory: dist/
