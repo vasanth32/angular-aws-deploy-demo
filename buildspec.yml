@@ -3,18 +3,17 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Installing Node 20 via NodeSource..."
-      - curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
-      - apt-get update && apt-get install -y nodejs
+      - echo "Using Node version:"
       - node -v
       - npm -v
-      - npm install -g @angular/cli@latest
       - npm ci
+
   build:
     commands:
-      - ng build --configuration production
+      - echo "Building Angular app..."
+      - npx ng build --configuration production
 
 artifacts:
-  base-directory: dist
   files:
     - '**/*'
+  base-directory: dist/*
