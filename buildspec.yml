@@ -3,8 +3,13 @@ version: 0.2
 phases:
   install:
     commands:
-      - npm install -g @angular/cli
-      - npm install
+      - echo "Installing Node 20 via NodeSource..."
+      - curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+      - apt-get update && apt-get install -y nodejs
+      - node -v
+      - npm -v
+      - npm install -g @angular/cli@latest
+      - npm ci
   build:
     commands:
       - ng build --configuration production
