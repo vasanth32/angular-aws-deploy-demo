@@ -21,4 +21,7 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: dist/angular-aws-deploy-demo
+  # UPDATED LINE BELOW:
+  # Adjusted to match the output folder seen in your logs.
+  # Added '/browser' because your logs show server bundles are being generated.
+  base-directory: dist/angular-demo/browser
